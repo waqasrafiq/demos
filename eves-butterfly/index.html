@@ -296,8 +296,8 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 .bfly{color:var(--gold)}
 .bfly path{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1}
 .bfly .wing{transform-box:view-box;transform-origin:32px 24px;animation:flap 1.8s ease-in-out infinite}
-.hero .bfly{position:absolute;z-index:3;left:50%;top:18%;width:170px;margin-left:-85px;pointer-events:none;animation:float 7s ease-in-out infinite}
-.hero .bfly path{stroke-width:.4;animation:draw 2.2s var(--ease) calc(var(--t0) + .3s) both}
+.hero .bfly{position:absolute;z-index:3;right:56px;top:170px;width:150px;color:var(--gold-lt);filter:drop-shadow(0 0 10px rgba(212,185,138,.35));pointer-events:none;animation:float 7s ease-in-out infinite}
+.hero .bfly path{stroke-width:.5;animation:draw 2.2s var(--ease) calc(var(--t0) + .3s) both}
 .cue{position:absolute;z-index:2;left:max(48px,calc((100vw - 1200px)/2 + 48px));bottom:0;width:1px;height:64px;background:rgba(239,230,216,.2);overflow:hidden}
 .cue::after{content:"";position:absolute;left:0;top:0;width:1px;height:50%;background:var(--gold);animation:cue 2.2s var(--ease) infinite}
 
@@ -349,11 +349,12 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
   .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,26,23,.3) 0%,rgba(31,26,23,0) 25%,rgba(31,26,23,0) 50%,rgba(31,26,23,.85) 80%,#1f1a17 100%)}
   .hero-media img{object-position:50% 20%}
   .hero-text{margin-top:-30%;padding:0 32px 56px;gap:18px}
-  .hero .bfly{left:auto;right:9%;top:13%;width:96px;margin:0}
+  .hero .bfly{right:32px;top:34px;width:96px}
   .cue{display:none}
 }
 @media (max-width:760px){
   .hero-text{padding:0 20px 44px}
+  .hero .bfly{right:20px;width:86px}
   .hero h1{font-size:56px}.ar-name{font-size:44px}
   .hero .tag{font-size:11px;letter-spacing:.14em}
   .lede{font-size:16px}
@@ -386,8 +387,8 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 <main>
 <section id="top" class="hero">
 <div class="hero-media"><img src="hero.jpg" alt="Glossy bridal updo with a jewelled hair pin" data-par fetchpriority="high"></div>
-<svg class="bfly" viewBox="0 0 64 48" aria-hidden="true"><g class="wing"><path d="M31 21C27 11 17 4 8 5C3 5.6 2.5 11 6 16C10 21.5 20 23.5 31 23" pathLength="1"/><path d="M31 25C24 25.5 15.5 29 13 35C11 40 15 44 20 42C25 40 29.5 33 31 27" pathLength="1"/><path d="M30 22C24 17 16 12.5 9.5 10.5" pathLength="1"/><path d="M30 26C25 29 20 33 17.5 38" pathLength="1"/><path d="M31.6 15C30.5 10 28 6.5 24.5 5" pathLength="1"/></g><g transform="matrix(-1 0 0 1 64 0)"><g class="wing"><path d="M31 21C27 11 17 4 8 5C3 5.6 2.5 11 6 16C10 21.5 20 23.5 31 23" pathLength="1"/><path d="M31 25C24 25.5 15.5 29 13 35C11 40 15 44 20 42C25 40 29.5 33 31 27" pathLength="1"/><path d="M30 22C24 17 16 12.5 9.5 10.5" pathLength="1"/><path d="M30 26C25 29 20 33 17.5 38" pathLength="1"/><path d="M31.6 15C30.5 10 28 6.5 24.5 5" pathLength="1"/></g></g><path d="M32 15C33.2 15 33.4 18 33.2 26C33 33 32.6 37 32 37C31.4 37 31 33 30.8 26C30.6 18 30.8 15 32 15Z" pathLength="1"/><path d="M32 12.2a1.4 1.4 0 1 0 0 2.8a1.4 1.4 0 1 0 0-2.8" pathLength="1"/></svg>
 <div class="hero-text">
+<svg class="bfly" viewBox="0 0 64 48" aria-hidden="true"><g class="wing"><path d="M31 21C27 11 17 4 8 5C3 5.6 2.5 11 6 16C10 21.5 20 23.5 31 23" pathLength="1"/><path d="M31 25C24 25.5 15.5 29 13 35C11 40 15 44 20 42C25 40 29.5 33 31 27" pathLength="1"/><path d="M30 22C24 17 16 12.5 9.5 10.5" pathLength="1"/><path d="M30 26C25 29 20 33 17.5 38" pathLength="1"/><path d="M31.6 15C30.5 10 28 6.5 24.5 5" pathLength="1"/></g><g transform="matrix(-1 0 0 1 64 0)"><g class="wing"><path d="M31 21C27 11 17 4 8 5C3 5.6 2.5 11 6 16C10 21.5 20 23.5 31 23" pathLength="1"/><path d="M31 25C24 25.5 15.5 29 13 35C11 40 15 44 20 42C25 40 29.5 33 31 27" pathLength="1"/><path d="M30 22C24 17 16 12.5 9.5 10.5" pathLength="1"/><path d="M30 26C25 29 20 33 17.5 38" pathLength="1"/><path d="M31.6 15C30.5 10 28 6.5 24.5 5" pathLength="1"/></g></g><path d="M32 15C33.2 15 33.4 18 33.2 26C33 33 32.6 37 32 37C31.4 37 31 33 30.8 26C30.6 18 30.8 15 32 15Z" pathLength="1"/><path d="M32 12.2a1.4 1.4 0 1 0 0 2.8a1.4 1.4 0 1 0 0-2.8" pathLength="1"/></svg>
 <p class="tag">Ladies' beauty salon · Wadi Al Kabir, Muscat</p>
 <h1 class="split">Eve's<br>Butterfly</h1>
 <p class="ar-name" lang="ar" dir="rtl">فراشة حواء</p>
