@@ -163,13 +163,37 @@ a.go:hover .nm{color:var(--stain)}
 .foot-links a:hover{color:var(--on-dark)}
 .foot-bottom{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;padding-top:24px;color:var(--on-dark-2)}
 
-/* motion: one entrance, in the hero only */
+
+/* motion: a henna-ink language, played once. Everything is visible without JS and for reduced-motion users */
+.hero .wrap,.foot .wrap{position:relative}
+.hero-text,.hero-pic,.foot-top,.foot-bottom{position:relative;z-index:1}
+.vine{position:absolute;left:-60px;bottom:-40px;width:min(46vw,640px);height:auto;color:var(--gold);opacity:.2;pointer-events:none;z-index:0}
+.foot .vine{left:auto;right:-40px;bottom:-60px;width:min(40vw,520px);opacity:.14;transform:scaleX(-1)}
+.js .vine path,.js .vine circle{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s cubic-bezier(.45,0,.2,1) both;animation-delay:calc(var(--d,0s) + .9s)}
+.js .foot:not(.in) .vine path,.js .foot:not(.in) .vine circle{animation:none}
+@keyframes draw{to{stroke-dashoffset:0}}
+.js .hero .mark{background:linear-gradient(100deg,var(--gold) 42%,#f6e2b8 50%,var(--gold) 58%) 100% 0/260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:write 1.7s cubic-bezier(.65,0,.35,1) .25s both,shine 1.8s var(--ease) 2.1s both}
+@keyframes write{from{clip-path:inset(-25% 0 -25% 100%)}to{clip-path:inset(-25% 0 -25% 0)}}
+@keyframes shine{from{background-position:100% 0}to{background-position:0 0}}
+.hero-pic img{scale:1.08}
+.js .sec-head .ar,.js .split-text .ar,.js .foot .mark{clip-path:inset(-30% 0 -30% 100%);transition:clip-path 1.5s cubic-bezier(.65,0,.35,1) .15s}
+.js .in .ar,.js .foot.in .mark{clip-path:inset(-30% 0 -30% 0)}
+.js .wipe img{clip-path:inset(100% 0 0 0);transform:scale(1.14);transition:clip-path 1.2s cubic-bezier(.65,0,.35,1),transform 1.8s var(--ease);transition-delay:var(--d,0s)}
+.js .wipe.in img{clip-path:inset(0);transform:none}
+.nm{transition:color .3s var(--ease),transform .5s var(--ease)}
+a.go:hover .nm{transform:translateX(10px)}
+.float{position:fixed;left:0;top:0;width:250px;aspect-ratio:4/5;border-radius:3px;overflow:hidden;pointer-events:none;z-index:4;opacity:0;
+  transform:translate3d(var(--x,0),var(--y,0),0) scale(var(--s,.86)) rotate(-2deg);transition:opacity .35s var(--ease),transform .6s var(--ease);box-shadow:0 30px 60px -30px rgba(43,24,19,.55)}
+.float.on{opacity:1;--s:1}
+/* hero entrance */
 @keyframes settle{from{opacity:0;transform:scale(1.04)}}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}}
 .hero-pic img{animation:settle 1.8s var(--ease) both}
 .hero-text>*{animation:rise 1.1s var(--ease) both}
-.hero-text>:nth-child(2){animation-delay:.15s}.hero-text>:nth-child(3){animation-delay:.3s}.hero-text>:nth-child(n+4){animation-delay:.45s}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+.hero-text>:nth-child(2){animation-delay:.95s}.hero-text>:nth-child(3){animation-delay:1.1s}.hero-text>:nth-child(n+4){animation-delay:1.25s}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}
+  .js .vine path,.js .vine circle{stroke-dashoffset:0}.js .hero .mark{clip-path:none}.float{display:none}}
 
 /* tablet */
 @media (max-width:1060px){
@@ -222,6 +246,7 @@ a.go:hover .nm{color:var(--stain)}
   .info .btn{width:100%}
   .book{padding:28px 20px}
   .foot .mark{font-size:52px}
+  .vine{width:92vw;left:-30px;bottom:-20px;opacity:.14}.foot .vine{width:80vw}
 }
 
 .gal-head{padding:72px 0 56px}
@@ -301,6 +326,18 @@ a.go:hover .nm{color:var(--stain)}
 
 <footer class="foot dark">
 <div class="wrap">
+<svg class="vine" viewBox="0 0 600 600" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+<path pathLength="1" d="M40 580C120 480 80 400 170 330S330 260 340 170S430 50 540 64"/>
+<path pathLength="1" d="M540 64c30 6 36 40 10 48c-22 7-34-18-18-28c10-6 20 2 14 10" style="--d:1.6s"/>
+<path pathLength="1" d="M104 470q-44-8-58-50q44 2 58 50z" style="--d:.5s"/>
+<path pathLength="1" d="M124 410q46-4 62-46q-46 0-62 46z" style="--d:.7s"/>
+<path pathLength="1" d="M214 312q-30-32-14-74q28 34 14 74z" style="--d:.9s"/>
+<path pathLength="1" d="M300 252q42 12 70-22q-42-14-70 22z" style="--d:1.1s"/>
+<path pathLength="1" d="M338 178q-40-16-46-60q38 18 46 60z" style="--d:1.3s"/>
+<path pathLength="1" d="M420 92q24-36 66-36q-24 38-66 36z" style="--d:1.5s"/>
+<path pathLength="1" d="M196 290c-18 4-30-8-26-22c4-12 20-14 28-4c8 10 2 24-12 26" style="--d:1s"/>
+<circle pathLength="1" cx="78" cy="372" r="3" style="--d:1.2s"/><circle pathLength="1" cx="64" cy="350" r="2" style="--d:1.3s"/><circle pathLength="1" cx="252" cy="196" r="3" style="--d:1.4s"/><circle pathLength="1" cx="262" cy="174" r="2" style="--d:1.5s"/><circle pathLength="1" cx="470" cy="150" r="3" style="--d:1.7s"/>
+</svg>
 <div class="foot-top">
 <div><p class="mark" lang="ar" dir="rtl">فراشة حواء</p><p class="en">Eve's Butterfly Beauty</p></div>
 <div class="foot-links">
