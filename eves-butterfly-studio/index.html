@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eve's Butterfly Studio · Wadi Al Kabir, Muscat</title>
+<meta name="description" content="Eve's Butterfly (فراشة حواء), a ladies' beauty salon in Wadi Al Kabir, Muscat. Hair colour, bridal hair, makeup, nails, henna and HydraFacial. Open daily 9am–9pm. Book on WhatsApp +968 9732 7080.">
+<link rel="icon" href="../eves-butterfly/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Figtree:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1f1a17;--mute:#6f655d;--gold:#b8945a;--gold-lt:#d4b98a;--bronze:#86663a;--ivory:#f7f2ec;--paper:#fffdf9;--blush:#ecdfd6;--line:#e6ddd3;--wa:#128c4a;
+  --serif:"Bodoni Moda",Georgia,serif;--sans:"Figtree",system-ui,sans-serif;--ar:"Amiri",serif;--pad:clamp(16px,5vw,64px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.ar{font-family:var(--ar);direction:rtl}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--bronze)}
+h2{font:400 clamp(36px,5vw,56px)/1.05 var(--serif);letter-spacing:-.01em}
+h2 .ar,.hero .ar-title{display:block;text-align:left}
+h2 .ar{font-size:.55em;color:var(--gold);margin-top:6px}
+section{padding:clamp(72px,10vw,128px) 0}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:99px;border:1px solid var(--ink);font:500 15px var(--sans);text-decoration:none;background:none;cursor:pointer}
+.btn.dark{background:var(--ink);color:var(--paper)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,box-shadow .3s}
+header.solid{background:rgba(255,253,249,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font:500 20px var(--serif);text-decoration:none;letter-spacing:.02em}
+.brand span{font-family:var(--ar);color:var(--gold);margin-left:8px;font-size:18px}
+nav{display:flex;gap:28px;font-size:14px}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+.bar .btn{padding:9px 18px;font-size:14px}
+
+/* hero: the colour wheel */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:var(--pad);padding:96px var(--pad) 48px;max-width:1340px;margin:0 auto}
+.hero h1{font:400 clamp(48px,7.4vw,104px)/.95 var(--serif);letter-spacing:-.02em}
+.hero h1 em{color:var(--bronze)}
+.hero .ar-title{font:700 clamp(28px,3.4vw,44px)/1.3 var(--ar);color:var(--gold);margin:18px 0 22px}
+.hero p{max-width:30em;color:var(--mute)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.wheel{position:relative;aspect-ratio:4/5;border-radius:50% 50% 24px 24px/38% 38% 24px 24px;overflow:hidden;background:var(--ivory);touch-action:pan-y}
+.wheel .s{position:absolute;inset:0;-webkit-mask:conic-gradient(from calc(var(--a)*1deg + var(--i)*60deg) at 50% 62%,#000 0 60deg,#0000 0);mask:conic-gradient(from calc(var(--a)*1deg + var(--i)*60deg) at 50% 62%,#000 0 60deg,#0000 0)}
+.wheel img{width:100%;height:100%;object-fit:cover}
+.wheel .seams{position:absolute;inset:0;pointer-events:none;background:repeating-conic-gradient(from calc(var(--a)*1deg) at 50% 62%,rgba(255,253,249,.85) 0 .35deg,#0000 .35deg 60deg)}
+.chip{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);background:rgba(255,253,249,.9);backdrop-filter:blur(6px);padding:8px 16px;border-radius:99px;font-size:14px;white-space:nowrap;display:flex;gap:10px;align-items:center}
+.chip i{width:12px;height:12px;border-radius:50%;background:var(--c,#c49a63)}
+.hint{position:absolute;right:var(--pad);bottom:22px;font-size:13px;color:var(--mute)}
+
+/* studio */
+.studio{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.studio img{border-radius:999px 999px 20px 20px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.studio p{color:var(--mute);margin-top:22px;max-width:32em}
+.facts{display:flex;gap:36px;margin-top:34px;flex-wrap:wrap}
+.facts b{display:block;font:400 34px var(--serif)}
+.facts span{font-size:14px;color:var(--mute)}
+
+/* work */
+.work{background:var(--ivory)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.head p{max-width:26em;color:var(--mute)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{text-decoration:none}
+.card .ph{overflow:hidden;border-radius:16px;aspect-ratio:4/5;background:var(--blush)}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card:hover img{transform:scale(1.05)}
+.card h3{font:400 22px var(--serif);margin-top:14px;display:flex;justify-content:space-between;align-items:baseline}
+.card h3 .ar{font-size:18px;color:var(--gold)}
+.card small{color:var(--mute);font-size:14px}
+
+/* artists */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.team img{border-radius:999px 999px 16px 16px;aspect-ratio:3/4;object-fit:cover;width:100%}
+.team h3{font:400 21px var(--serif);margin-top:14px}
+.team p{font-size:14px;color:var(--mute)}
+
+/* services */
+.svc{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px)}
+.tabs{display:flex;gap:8px;margin-top:28px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:none;border-radius:99px;padding:8px 16px;font:500 14px var(--sans);cursor:pointer;color:var(--mute)}
+.tabs button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.list{list-style:none;padding:0}
+.list li{display:grid;grid-template-columns:1fr auto;gap:4px 24px;padding:20px 0;border-bottom:1px solid var(--line)}
+.list li:first-child{border-top:1px solid var(--line)}
+.list b{font:400 21px var(--serif)}
+.list b .ar{display:block;text-align:left;font-size:16px;color:var(--gold)}
+.list p{grid-column:1;font-size:15px;color:var(--mute)}
+.list a{grid-row:1/3;grid-column:2;align-self:center;font-size:14px;color:var(--bronze);text-decoration:none;border-bottom:1px solid var(--gold-lt);white-space:nowrap}
+.note{font-size:14px;color:var(--mute);margin-top:22px}
+
+/* book */
+.book{background:var(--blush);overflow:hidden}
+.book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+form{display:grid;gap:14px;margin-top:28px;max-width:440px}
+label{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--bronze);display:grid;gap:6px}
+input,select{font:400 16px var(--sans);padding:13px 14px;border:1px solid #d9c9bb;border-radius:10px;background:var(--paper);color:var(--ink)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.book img{border-radius:999px 999px 20px 20px;aspect-ratio:4/5;object-fit:cover;width:100%;max-width:460px;justify-self:end}
+
+/* find us */
+.find{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,80px);align-items:start}
+.find iframe{width:100%;aspect-ratio:4/3;border:0;border-radius:16px;filter:grayscale(.4) sepia(.15)}
+dl{display:grid;gap:18px;margin-top:28px}
+dt{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze)}
+dd{font:400 20px var(--serif)}
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .big{font:400 clamp(40px,8vw,88px)/1 var(--serif);color:var(--ink)}
+footer .big span{font-family:var(--ar);color:var(--gold);font-size:.6em;margin-left:14px;white-space:nowrap}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  nav{display:none}
+  .hero{grid-template-columns:1fr;padding-top:84px;gap:28px}
+  .wheel{order:-1;max-height:62svh;width:100%;justify-self:center}
+  .hint{display:none}
+  .studio,.svc,.book .wrap,.find{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr;gap:14px}
+  .team{grid-template-columns:1fr 1fr;gap:14px}
+  .book img{justify-self:start}
+}
+@media (max-width:480px){.row{grid-template-columns:1fr}.card h3{font-size:18px}.card h3 .ar{font-size:15px}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header id="top"><div class="wrap bar">
+  <a class="brand" href="#">Eve's Butterfly<span>فراشة حواء</span></a>
+  <nav><a href="#studio">Studio</a><a href="#work">Work</a><a href="#artists">Artists</a><a href="#services">Services</a><a href="#visit">Visit</a></nav>
+  <a class="btn dark" href="#book">Book</a>
+</div></header>
+
+<main>
+<section class="hero" aria-label="Find your colour">
+  <div>
+    <p class="eyebrow">Ladies' salon · Wadi Al Kabir, Muscat</p>
+    <h1 style="margin-top:18px">Every woman,<br><em>her own story.</em></h1>
+    <p class="ar ar-title">لكل امرأة حكاية</p>
+    <p>Colour, bridal hair, makeup, nails, henna and HydraFacial. Open every day from 9am to 9pm.</p>
+    <div class="ctas"><a class="btn wa" href="https://wa.me/96897327080?text=Hello%20Eve%27s%20Butterfly%2C%20I%20would%20like%20to%20book%20an%20appointment.">Book on WhatsApp</a><a class="btn" href="#work">See our work</a></div>
+  </div>
+  <div class="wheel" id="wheel" role="img" aria-label="One of our hair looks shown in six colours, honey, burgundy, espresso, copper, ash and rose gold, in slices that turn as you move">
+    <!-- one real photo, recoloured per slice with CSS filters, so every slice lines up -->
+    <div class="s" style="--i:0"><img src="../eves-butterfly/g/hair-07-full.webp" alt=""></div>
+    <div class="s" style="--i:1;filter:sepia(.4) hue-rotate(-28deg) saturate(1.5) brightness(.7)"><img src="../eves-butterfly/g/hair-07-full.webp" alt=""></div>
+    <div class="s" style="--i:2;filter:brightness(.52) saturate(.75) contrast(1.15)"><img src="../eves-butterfly/g/hair-07-full.webp" alt=""></div>
+    <div class="s" style="--i:3;filter:hue-rotate(-9deg) saturate(1.45) brightness(.9)"><img src="../eves-butterfly/g/hair-07-full.webp" alt=""></div>
+    <div class="s" style="--i:4;filter:grayscale(.75) sepia(.12) brightness(1.1) contrast(.95)"><img src="../eves-butterfly/g/hair-07-full.webp" alt=""></div>
+    <div class="s" style="--i:5;filter:hue-rotate(-24deg) saturate(1.05) brightness(1.06)"><img src="../eves-butterfly/g/hair-07-full.webp" alt=""></div>
+    <div class="seams"></div>
+    <div class="chip" aria-live="polite"><i></i><span id="shade">Honey</span></div>
+  </div>
+  <p class="hint">Move to try a colour →</p>
+</section>
+
+<section id="studio"><div class="wrap studio">
+  <img class="reveal" src="../eves-butterfly/promise.webp" alt="A finished hairstyle at Eve's Butterfly" loading="lazy">
+  <div class="reveal">
+    <p class="eyebrow">The studio</p>
+    <h2 style="margin-top:14px">A calm room, made for women.<span class="ar">صالون نسائي هادئ</span></h2>
+    <p>Eve's Butterfly is a ladies-only salon near the Old Roundabout Signal in Wadi Al Kabir. Come in for an everyday blow-dry or get ready for your wedding day. Either way, we take our time until it feels like you.</p>
+    <div class="facts"><div><b>4.8</b><span>on Google, 17 reviews</span></div><div><b>7 days</b><span>9am to 9pm</span></div><div><b>Ladies</b><span>only</span></div></div>
+  </div>
+</div></section>
+
+<section class="work" id="work"><div class="wrap">
+  <div class="head reveal"><div><p class="eyebrow">Selected work</p><h2 style="margin-top:14px">From our chair.<span class="ar">من أعمالنا</span></h2></div>
+    <p>Real clients, photographed in the salon. Tap a look to see more like it.</p></div>
+  <div class="grid">
+    <a class="card reveal" href="../eves-butterfly/hair.html"><div class="ph"><img src="../eves-butterfly/g/hair-10-full.webp" alt="Bridal updo with a flower pin" loading="lazy"></div><h3>Bridal updos <span class="ar">تسريحات العروس</span></h3><small>19 hair photos</small></a>
+    <a class="card reveal" href="../eves-butterfly/henna.html"><div class="ph"><img src="../eves-butterfly/g/henna-08-full.webp" alt="African henna on both hands" loading="lazy"></div><h3>African henna <span class="ar">حناء</span></h3><small>10 henna photos</small></a>
+    <a class="card reveal" href="../eves-butterfly/nails.html"><div class="ph"><img src="../eves-butterfly/g/nails-02-full.webp" alt="Dark red gel nails" loading="lazy"></div><h3>Gel &amp; acrylic <span class="ar">الأظافر</span></h3><small>7 nail photos</small></a>
+    <a class="card reveal" href="../eves-butterfly/hair.html"><div class="ph"><img src="../eves-butterfly/g/hair-06-full.webp" alt="Soft chestnut curls" loading="lazy"></div><h3>Curls &amp; waves <span class="ar">كيرلي</span></h3><small>Blow-dry and styling</small></a>
+    <a class="card reveal" href="../eves-butterfly/makeup.html"><div class="ph"><img src="../eves-butterfly/makeup.webp" alt="Gold eye makeup" loading="lazy"></div><h3>Makeup <span class="ar">مكياج</span></h3><small>6 makeup photos</small></a>
+    <a class="card reveal" href="../eves-butterfly/hair.html"><div class="ph"><img src="../eves-butterfly/g/hair-19-full.webp" alt="Hair before and after a smoothing treatment" loading="lazy"></div><h3>Hair botox <span class="ar">بوتوكس الشعر</span></h3><small>Before and after</small></a>
+  </div>
+</div></section>
+
+<section id="artists"><div class="wrap">
+  <div class="head reveal"><div><p class="eyebrow">The artists</p><h2 style="margin-top:14px">Hands you can trust.<span class="ar">فنّاناتنا</span></h2></div>
+    <p>Each service has its own specialist, so your henna artist only does henna and your colourist only does colour.</p></div>
+  <div class="team">
+    <div class="reveal"><img src="../eves-butterfly/g/hair-13-full.webp" alt="Bridal hair by our hair artist" loading="lazy"><h3>Hair &amp; colour</h3><p>Colour, highlights and bridal updos</p></div>
+    <div class="reveal"><img src="../eves-butterfly/g/henna-02-full.webp" alt="Henna by our henna artist" loading="lazy"><h3>Henna</h3><p>African henna for Eid and weddings</p></div>
+    <div class="reveal"><img src="../eves-butterfly/g/nails-04-full.webp" alt="Nails by our nail technician" loading="lazy"><h3>Nails</h3><p>Gel polish and acrylic extensions</p></div>
+    <div class="reveal"><img src="../eves-butterfly/lashes.webp" alt="Makeup by our makeup artist" loading="lazy"><h3>Makeup &amp; skin</h3><p>Bridal makeup, lashes and HydraFacial</p></div>
+  </div>
+</div></section>
+
+<section class="work" id="services"><div class="wrap svc">
+  <div class="reveal">
+    <p class="eyebrow">Services &amp; pricing</p>
+    <h2 style="margin-top:14px">What we do.<span class="ar">خدماتنا</span></h2>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-t="hair">Hair</button><button role="tab" aria-selected="false" data-t="beauty">Face &amp; makeup</button><button role="tab" aria-selected="false" data-t="hands">Hands &amp; henna</button>
+    </div>
+    <p class="note">Prices depend on hair length and design. Tap "Ask the price" and WhatsApp opens with your question written.</p>
+  </div>
+  <div class="reveal">
+    <ul class="list" data-p="hair">
+      <li><b>Colour &amp; highlights<span class="ar">صبغة وهايلايت</span></b><p>Full colour, balayage and highlights</p><a href="#" data-s="hair colour or highlights">Ask the price</a></li>
+      <li><b>Blow-dry &amp; curls<span class="ar">سشوار وكيرلي</span></b><p>Smooth blow-dry, soft waves, glam curls</p><a href="#" data-s="a blow-dry or curls">Ask the price</a></li>
+      <li><b>Bridal &amp; party updos<span class="ar">تسريحات</span></b><p>Buns, rolls and pinned styles that last all night</p><a href="#" data-s="a bridal or party updo">Ask the price</a></li>
+      <li><b>Hair botox<span class="ar">بوتوكس الشعر</span></b><p>Smooth, frizz-free, glossy hair</p><a href="#" data-s="hair botox">Ask the price</a></li>
+    </ul>
+    <ul class="list" data-p="beauty" hidden>
+      <li><b>Everyday &amp; party makeup<span class="ar">مكياج</span></b><p>Soft glam to bold evening looks</p><a href="#" data-s="party makeup">Ask the price</a></li>
+      <li><b>Bridal makeup<span class="ar">مكياج العروس</span></b><p>Trial first, then your wedding day</p><a href="#" data-s="bridal makeup">Ask the price</a></li>
+      <li><b>HydraFacial<span class="ar">هيدرافيشل</span></b><p>Deep cleansing and a fresh glow</p><a href="#" data-s="HydraFacial">Ask the price</a></li>
+    </ul>
+    <ul class="list" data-p="hands" hidden>
+      <li><b>Gel polish<span class="ar">جل</span></b><p>Long-lasting colour for hands and feet</p><a href="#" data-s="gel polish">Ask the price</a></li>
+      <li><b>Acrylic extensions<span class="ar">أظافر أكريليك</span></b><p>Shaped and finished to your length</p><a href="#" data-s="acrylic nails">Ask the price</a></li>
+      <li><b>African henna<span class="ar">حناء أفريقية</span></b><p>Hands and feet, for Eid, weddings and celebrations</p><a href="#" data-s="African henna">Ask the price</a></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="book" id="book"><div class="wrap">
+  <div class="reveal">
+    <p class="eyebrow">Book an appointment</p>
+    <h2 style="margin-top:14px">Your chair is waiting.<span class="ar">احجزي موعدك</span></h2>
+    <form id="bookf">
+      <label>Your name<input name="n" autocomplete="name" required></label>
+      <label>Service<select name="s"><option>Hair colour</option><option>Blow-dry &amp; curls</option><option>Bridal hair</option><option>Hair botox</option><option>Makeup</option><option>Bridal makeup</option><option>HydraFacial</option><option>Nails</option><option>African henna</option></select></label>
+      <div class="row"><label>Day<input name="d" type="date"></label><label>Time<select name="t"><option>Morning</option><option>Afternoon</option><option>Evening</option></select></label></div>
+      <button class="btn wa" type="submit">Send on WhatsApp</button>
+    </form>
+  </div>
+  <img class="reveal" src="../eves-butterfly/g/hair-01-full.webp" alt="An elegant low bun with a crystal pin" loading="lazy">
+</div></section>
+
+<section id="visit"><div class="wrap find">
+  <iframe class="reveal" src="https://maps.google.com/maps?q=23.5869425,58.5595779&amp;z=16&amp;output=embed" title="Map to Eve's Butterfly, Wadi Al Kabir" loading="lazy"></iframe>
+  <div class="reveal">
+    <p class="eyebrow">Find us</p>
+    <h2 style="margin-top:14px">Wadi Al Kabir.<span class="ar">زورينا</span></h2>
+    <dl>
+      <div><dt>Address</dt><dd>Old Roundabout Signal, Wadi Al Kabir, Muscat</dd></div>
+      <div><dt>Hours</dt><dd>Every day, 9am to 9pm</dd></div>
+      <div><dt>WhatsApp</dt><dd><a href="https://wa.me/96897327080">+968 9732 7080</a></dd></div>
+    </dl>
+    <p style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="https://maps.google.com/?cid=16438306866606457247">Open in Google Maps</a><a class="btn" href="https://www.instagram.com/eves_butterfly_beauty/">Instagram</a></p>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="big">Eve's Butterfly<span>فراشة حواء</span></div>
+  <div>© 2026 Eve's Butterfly Beauty · <a href="https://www.facebook.com/beaityp">Facebook</a> · <a href="https://www.instagram.com/eves_butterfly_beauty/">Instagram</a></div>
+</div></footer>
+
+<script>
+const WA = 'https://wa.me/96897327080?text=';
+const wheel = document.getElementById('wheel'), shade = document.getElementById('shade'), chip = wheel.querySelector('.chip i');
+const SHADES = [['Honey', '#c49a63'], ['Burgundy', '#7a2232'], ['Espresso', '#3b2a22'], ['Copper', '#b4602e'], ['Ash', '#b9b4ad'], ['Rose gold', '#c98c84']];
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let a = 0, target = 0, pointer = false;
+
+// angle of the pointer around the wheel's pivot (50%, 62%)
+addEventListener('pointermove', (e) => {
+  if (e.pointerType !== 'mouse') return;
+  const r = wheel.getBoundingClientRect();
+  const deg = Math.atan2(e.clientY - (r.top + r.height * .62), e.clientX - (r.left + r.width / 2)) * 180 / Math.PI;
+  target = deg * 1.5 + (e.clientX / innerWidth) * 120;
+  pointer = true;
+});
+(function tick(t) {
+  if (!pointer) target = scrollY * .35 + (still ? 0 : t / 1000 * 8); // phones: scroll and a slow drift
+  a += (target - a) * .08;
+  wheel.style.setProperty('--a', a.toFixed(2));
+  const top = Math.floor(((-a % 360) + 360) % 360 / 60); // slice straight above the pivot (conic 0deg = up)
+  if (shade.textContent !== SHADES[top][0]) { shade.textContent = SHADES[top][0]; chip.style.setProperty('--c', SHADES[top][1]); }
+  requestAnimationFrame(tick);
+})(0);
+
+addEventListener('scroll', () => document.getElementById('top').classList.toggle('solid', scrollY > 40), {passive: true});
+
+document.querySelectorAll('.tabs button').forEach((b) => b.onclick = () => {
+  document.querySelectorAll('.tabs button').forEach((x) => x.setAttribute('aria-selected', x === b));
+  document.querySelectorAll('.list').forEach((l) => l.hidden = l.dataset.p !== b.dataset.t);
+});
+document.querySelectorAll('.list a').forEach((l) => l.href = WA + encodeURIComponent(`Hello, could you send me the price and next free time for ${l.dataset.s}?`));
+
+document.getElementById('bookf').onsubmit = (e) => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const msg = `Hello Eve's Butterfly, I'm ${f.get('n')}. I'd like to book ${f.get('s')}` + (f.get('d') ? ` on ${f.get('d')}` : '') + `, ${f.get('t').toLowerCase()}.`;
+  open(WA + encodeURIComponent(msg), '_blank');
+};
+
+const io = new IntersectionObserver((es) => es.forEach((x) => x.isIntersecting && (x.target.classList.add('in'), io.unobserve(x.target))), {threshold: .15});
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
