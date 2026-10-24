@@ -271,8 +271,13 @@ addEventListener('pointermove', (e) => {
   target = deg * 1.5 + (e.clientX / innerWidth) * 120;
   pointer = true;
 });
+// phones: dragging a finger across the wheel turns it (vertical swipes still scroll the page)
+let lastX = null;
+wheel.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') { lastX = e.clientX; pointer = true; } });
+wheel.addEventListener('pointermove', (e) => { if (lastX !== null) { target += (e.clientX - lastX) * 1.2; lastX = e.clientX; } });
+['pointerup', 'pointercancel', 'pointerleave'].forEach((t) => wheel.addEventListener(t, () => { lastX = null; }));
 (function tick(t) {
-  if (!pointer) target = scrollY * .35 + (still ? 0 : t / 1000 * 8); // phones: scroll and a slow drift
+  if (!pointer) target = scrollY * .9 + (still ? 0 : t / 1000 * 14); // until touched: scroll and a slow drift
   a += (target - a) * .08;
   wheel.style.setProperty('--a', a.toFixed(2));
   const top = Math.floor(((-a % 360) + 360) % 360 / 60); // slice straight above the pivot (conic 0deg = up)
