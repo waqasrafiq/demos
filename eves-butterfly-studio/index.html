@@ -73,6 +73,19 @@ a:hover .ph img{transform:scale(1.04)}
 .meta b{font:400 18px var(--serif)}
 .meta .ar{font-size:16px;color:var(--gold)}
 
+/* before / after */
+.bawrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,8vw,120px);align-items:center}
+.bawrap p.body{color:var(--mute);margin:24px 0 36px;max-width:26em}
+.ba{position:relative;aspect-ratio:4/5;overflow:hidden;user-select:none;--p:50%;max-width:560px;justify-self:end;width:100%}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .after{clip-path:inset(0 0 0 var(--p))}
+.ba-line{position:absolute;top:0;bottom:0;left:var(--p);width:1px;background:var(--paper);pointer-events:none}
+.ba-line::after{content:"";position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px;border-radius:50%;border:1px solid var(--paper);background:rgba(251,248,244,.25);backdrop-filter:blur(4px)}
+.ba:focus-within .ba-line::after{outline:1px solid var(--ink);outline-offset:3px}
+.ba .lab{position:absolute;top:18px;font:400 10.5px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--paper);text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.ba .lab.l{left:18px}.ba .lab.r{right:18px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;touch-action:pan-y}
+
 /* artists */
 .team{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,28px)}
 .team .ph{aspect-ratio:3/4}
@@ -118,7 +131,8 @@ footer p{font-size:12px;color:var(--mute);letter-spacing:.08em}
 
 @media (max-width:900px){
   nav{display:none}
-  .studio,.svc,.book .wrap,.find{grid-template-columns:1fr}
+  .studio,.svc,.book .wrap,.find,.bawrap{grid-template-columns:1fr}
+  .ba{justify-self:stretch}
   .grid{grid-template-columns:1fr 1fr}
   .grid a:nth-child(3n+2){margin-top:0}
   .grid a:nth-child(2n){margin-top:40px}
@@ -180,6 +194,22 @@ footer p{font-size:12px;color:var(--mute);letter-spacing:.08em}
     <a class="reveal" href="../eves-butterfly/nails.html"><div class="ph"><img src="../eves-butterfly/g/nails-02-full.webp" alt="Dark red gel nails" loading="lazy"></div><div class="meta"><b>Gel nails</b><span class="ar">جل</span></div></a>
     <a class="reveal" href="../eves-butterfly/makeup.html"><div class="ph"><img src="../eves-butterfly/g/makeup-03-full.webp" alt="Gold eye makeup" loading="lazy"></div><div class="meta"><b>Eye makeup</b><span class="ar">مكياج</span></div></a>
     <a class="reveal" href="../eves-butterfly/hair.html"><div class="ph"><img src="../eves-butterfly/g/hair-19-full.webp" alt="Frizzy hair before and sleek hair after a botox treatment" loading="lazy"></div><div class="meta"><b>Hair botox</b><span class="ar">بوتوكس الشعر</span></div></a>
+  </div>
+</div></section>
+
+<section id="before-after"><div class="wrap bawrap">
+  <div class="reveal">
+    <p class="cap">Before &amp; after</p>
+    <h2>The same woman,<br><em>her wedding day.</em></h2><span class="ar ar-sub">قبل وبعد</span>
+    <p class="body">A real client, before and after her bridal makeup and hair with us. Drag the line to compare.</p>
+    <a class="link" href="#book">Book a bridal trial</a>
+  </div>
+  <div class="ba reveal" id="ba">
+    <img src="../eves-butterfly/before.webp" alt="Before: client with no makeup and straight hair" loading="lazy">
+    <img class="after" src="../eves-butterfly/after.webp" alt="After: bridal makeup, soft curls and gold jewellery" loading="lazy">
+    <span class="lab l">Before</span><span class="lab r">After</span>
+    <span class="ba-line"></span>
+    <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
   </div>
 </div></section>
 
@@ -296,6 +326,22 @@ document.getElementById('bookf').onsubmit = (e) => {
   const f = new FormData(e.target);
   open(WA + encodeURIComponent(`Hello Eve's Butterfly, I'm ${f.get('n')}. I'd like to book ${f.get('s')}` + (f.get('d') ? ` on ${f.get('d')}` : '') + `, ${f.get('t').toLowerCase()}.`), '_blank');
 };
+// before/after: the range input moves the line; one gentle nudge when it first appears, so people see it moves
+const ba = document.getElementById('ba'), bi = ba.querySelector('input');
+let baTouched = false;
+bi.addEventListener('input', () => { baTouched = true; ba.style.setProperty('--p', bi.value + '%'); });
+new IntersectionObserver(([x], o) => {
+  if (!x.isIntersecting || still) return;
+  o.disconnect();
+  const t0 = performance.now();
+  (function nudge(t) {
+    if (baTouched) return;
+    const k = Math.min(1, (t - t0) / 1600), v = 50 - Math.sin(k * Math.PI) * 14;
+    ba.style.setProperty('--p', v + '%'); bi.value = v;
+    if (baTouched) return;
+    if (k < 1) requestAnimationFrame(nudge);
+  })(t0);
+}, {threshold: .5}).observe(ba);
 const io = new IntersectionObserver((es) => es.forEach((x) => x.isIntersecting && (x.target.classList.add('in'), io.unobserve(x.target))), {threshold: .12});
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 </script>
