@@ -38,12 +38,19 @@ nav a:hover{color:var(--ink)}
 /* hero: one portrait; each wedge is the same photo with different hair, turned like a dial */
 .hero-wrap{height:165svh}
 .hero{position:sticky;top:0;height:100svh;min-height:540px;overflow:hidden;background:linear-gradient(#eeecea,#ece9ec);padding:0 !important}
-.portrait{position:absolute;left:50%;bottom:-16%;height:calc(100% + 16% - 72px);aspect-ratio:4/5;transform:translateX(-50%);touch-action:pan-y;cursor:grab;
-  -webkit-mask:linear-gradient(90deg,#0000,#000 9%,#000 91%,#0000);mask:linear-gradient(90deg,#0000,#000 9%,#000 91%,#0000)}
-.s{position:absolute;inset:0;-webkit-mask:conic-gradient(from calc(var(--a)*1deg + var(--i)*60deg) at 50% 58%,#000 0 60deg,#0000 0);mask:conic-gradient(from calc(var(--a)*1deg + var(--i)*60deg) at 50% 58%,#000 0 60deg,#0000 0)}
-.s img{width:100%;height:100%;object-fit:cover}
-.seams{position:absolute;inset:0;pointer-events:none;opacity:.55;background:repeating-conic-gradient(from calc(var(--a)*1deg) at 50% 58%,#fff 0 .22deg,#0000 .22deg 60deg);
-  -webkit-mask:radial-gradient(circle at 50% 58%,#000 0,#000 38%,#0000 62%);mask:radial-gradient(circle at 50% 58%,#000 0,#000 38%,#0000 62%)}
+.portrait{position:absolute;left:50%;top:53%;width:min(84vw,72svh);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;touch-action:pan-y;cursor:grab;
+  box-shadow:0 0 0 1px rgba(255,255,255,.6),0 50px 90px -50px rgba(38,33,29,.55)}
+.portrait::after{content:"";position:absolute;inset:-1px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);pointer-events:none}
+.s{position:absolute;inset:0;-webkit-mask:conic-gradient(from calc(var(--a)*1deg + var(--i)*60deg),#000 0 60deg,#0000 0);mask:conic-gradient(from calc(var(--a)*1deg + var(--i)*60deg),#000 0 60deg,#0000 0)}
+.s img{position:absolute;left:0;top:0;width:66%;height:66%;object-fit:cover;filter:sepia(.14) saturate(.86) brightness(1.02) contrast(.97);will-change:transform}
+.seams{position:absolute;inset:0;pointer-events:none;background:repeating-conic-gradient(from calc(var(--a)*1deg),rgba(255,255,255,.85) 0 .25deg,#0000 .25deg 60deg)}
+.shade{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle,rgba(38,33,29,.18) 0,rgba(38,33,29,0) 35%,rgba(38,33,29,.22) 100%)}
+.pin{position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;background:var(--paper);box-shadow:0 0 0 5px rgba(251,248,244,.3)}
+.ring{position:absolute;left:50%;top:53%;width:calc(min(84vw,72svh) + 34px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(168,135,90,.35);pointer-events:none}
+.lbl{position:absolute;left:0;top:0;transform:translate(-50%,-50%);text-align:center;color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.45);pointer-events:auto;white-space:nowrap}
+.lbl b{display:block;font:400 clamp(10px,.9vw,12px) var(--sans);letter-spacing:.32em;text-transform:uppercase}
+.lbl .ar{display:block;font-size:clamp(17px,1.6vw,22px);margin-top:4px;text-align:center}
+.lbl::after{content:"";display:block;width:22px;height:1px;background:rgba(255,255,255,.7);margin:8px auto 0}
 .title{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:14px;pointer-events:none;background:rgba(38,33,29,.26);color:#fff;opacity:var(--t,0)}
 .title b{font:300 clamp(26px,4.4vw,56px)/1.15 var(--sans);letter-spacing:.32em;text-transform:uppercase}
 .title .ar{font-size:clamp(22px,2.6vw,32px);text-align:center}
@@ -183,16 +190,23 @@ header.up{transform:translateY(-100%)}
 </div></header>
 
 <main>
-<div class="hero-wrap"><section class="hero" id="hero" aria-label="One hairstyle shown in six colours and styles, in slices that turn as you move">
-  <!-- the same photo six times, only the hair differs; wedges turn, the photo stays still -->
+<div class="hero-wrap"><section class="hero" id="hero" aria-label="Our services in turning slices: colour, bridal hair, henna, nails, makeup and HydraFacial">
+  <!-- one service per wedge; the wedges and their labels turn, the photos stay still -->
+  <span class="ring"></span>
   <div class="portrait" id="portrait">
-    <div class="s" style="--i:0"><img src="hero/v0.webp" alt=""></div>
-    <div class="s" style="--i:1"><img src="hero/v1.webp" alt=""></div>
-    <div class="s" style="--i:2"><img src="hero/v2.webp" alt=""></div>
-    <div class="s" style="--i:3"><img src="hero/v3.webp" alt=""></div>
-    <div class="s" style="--i:4"><img src="hero/v4.webp" alt=""></div>
-    <div class="s" style="--i:5"><img src="hero/v5.webp" alt=""></div>
-    <div class="seams"></div>
+    <div class="s" style="--i:0"><img src="wheel/colour.webp" alt="" style="object-position:50% 28%"></div>
+    <div class="s" style="--i:1"><img src="wheel/bridal.webp" alt="" style="object-position:50% 45%"></div>
+    <div class="s" style="--i:2"><img src="wheel/henna.webp" alt="" style="object-position:50% 50%"></div>
+    <div class="s" style="--i:3"><img src="wheel/nails.webp" alt="" style="object-position:50% 50%"></div>
+    <div class="s" style="--i:4"><img src="wheel/makeup.webp" alt="" style="object-position:50% 45%"></div>
+    <div class="s" style="--i:5"><img src="wheel/hydra.webp" alt="" style="object-position:50% 30%"></div>
+    <div class="seams"></div><div class="shade"></div><span class="pin"></span>
+    <a class="lbl" href="#services" data-i="0"><b>Colour</b><span class="ar">صبغة</span></a>
+    <a class="lbl" href="#work" data-i="1"><b>Bridal hair</b><span class="ar">تسريحات العروس</span></a>
+    <a class="lbl" href="#work" data-i="2"><b>Henna</b><span class="ar">حناء</span></a>
+    <a class="lbl" href="#services" data-i="3"><b>Nails</b><span class="ar">أظافر</span></a>
+    <a class="lbl" href="#before-after" data-i="4"><b>Makeup</b><span class="ar">مكياج</span></a>
+    <a class="lbl" href="#services" data-i="5"><b>HydraFacial</b><span class="ar">هيدرافيشل</span></a>
   </div>
   <div class="title"><b>Every woman,<br>her own story</b><span class="ar">لكل امرأة حكاية</span></div>
   <div class="tag"><span class="cap">Ladies' salon · Wadi Al Kabir</span><span class="cap" id="hint">Move to turn</span></div>
@@ -331,17 +345,18 @@ const WA = 'https://wa.me/96897327080?text=';
 const hero = document.getElementById('hero'), por = document.getElementById('portrait');
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let a = 0, target = 0, touched = false, grab = null;
+const lbls = [...document.querySelectorAll('.lbl')], imgs = [...document.querySelectorAll('.s img')];
 if (matchMedia('(pointer: coarse)').matches) document.getElementById('hint').textContent = 'Drag to turn';
 
-// angle of a point around the pivot (the nape, 50% / 58% of the portrait)
+// angle of a point around the dial's centre
 const ang = (e) => {
   const r = por.getBoundingClientRect();
-  return Math.atan2(e.clientY - (r.top + r.height * .58), e.clientX - (r.left + r.width / 2)) * 180 / Math.PI;
+  return Math.atan2(e.clientY - (r.top + r.height / 2), e.clientX - (r.left + r.width / 2)) * 180 / Math.PI;
 };
 // mouse: the seams follow the cursor around the head
 hero.addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse') { target = ang(e); touched = true; } });
 // finger: a dial. Where you touch stays under your finger, 1:1, no lag
-por.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') { grab = a - ang(e); touched = true; } });
+por.addEventListener('pointerdown', (e) => { if (e.target.closest('.lbl')) return; if (e.pointerType !== 'mouse') { grab = a - ang(e); touched = true; } });
 por.addEventListener('pointermove', (e) => { if (grab !== null) a = target = ang(e) + grab; });
 ['pointerup', 'pointercancel'].forEach((t) => por.addEventListener(t, () => { grab = null; }));
 
@@ -351,6 +366,13 @@ let t0 = performance.now();
   t0 = t;
   if (grab === null) a += (target - a) * .18;
   por.style.setProperty('--a', a.toFixed(2));
+  // each photo and label travel with their wedge and stay upright (conic 0deg points up, clockwise)
+  const R = por.clientWidth / 2, half = R * .66;
+  for (let i = 0; i < 6; i++) {
+    const th = (a + i * 60 + 30) * Math.PI / 180, sx = Math.sin(th), cy = Math.cos(th);
+    imgs[i].style.transform = `translate(${R + R * .56 * sx - half}px, ${R - R * .56 * cy - half}px)`;
+    lbls[i].style.transform = `translate(${R + R * .7 * sx}px, ${R - R * .7 * cy}px) translate(-50%, -50%)`;
+  }
   hero.style.setProperty('--t', Math.min(1, Math.max(0, (scrollY - innerHeight * .1) / (innerHeight * .4))).toFixed(3));
   requestAnimationFrame(tick);
 })(t0);
